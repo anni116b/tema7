@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        header,
+        footer {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        header,
+        footer {
+            padding: 15px 0;
+            border: 1px solid black;
+        }
+
+        main {
+            display: block;
+            text-align: center;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minimax(400px, 1fr));
+            grid-gap: 20px;
+            ;
+
+
+
+
+
+        }
+
+
+        article {
+            border: 1px solid black;
+            width: 400px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>Titel</header>
+    <main>
+        <h2>Undertitel</h2>
+
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/arch" alt="" class="first">
+                <div class="text">
+                    <h3>Article 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis error vitae vero commodi, accusamus doloremque. Autem sunt aliquam, voluptate iusto culpa vel necessitatibus neque quis dolorum minima iste facilis blanditiis voluptatibus aperiam, maxime pariatur dolores, veniam dignissimos! Quasi perferendis, officiis.</p>
+                </div>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="">
+                <div class="text">
+                    <h3>Article 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ad, dolore consequuntur dignissimos accusamus sint, porro magni saepe placeat modi reprehenderit ratione ea consectetur. Cum officia distinctio aspernatur ad libero vitae, eligendi ipsam hic velit blanditiis quo, unde eum recusandae.</p>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+    <footer>This is a footer</footer>
+    <script>
+        const titel = document.querySelector("header");
+        console.log(titel);
+        titel.textContent = "Billedegalleri";
+        //titel.innerHTML = "<h1>Billeder</h1>"
+        const h2 = document.querySelector("h2");
+        console.log(h2);
+        h2.textContent = "By og natur";
+
+        const pic1 = document.querySelector("article:first-child img");
+        console.log(pic1);
+        pic1.alt = "billede af arkitektur";
+
+
+        const h3 = document.querySelector("h3:first-child");
+        console.log(h3);
+        h3.textContent = "By";
+
+
+        const pic2 = document.querySelector("article:last-child img");
+        console.log(pic2);
+        pic2.alt = "billede af natur";
+
+    </script>
+</body>
+
+</html>
