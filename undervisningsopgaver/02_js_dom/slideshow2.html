@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        img {
+            width: 80%;
+        }
+
+        main {
+            width: 50vw;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        button {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="background">
+            <h1>Tro på det...</h1>
+            <div id="newImg"><img src="https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img1.png" alt=""></div>
+            <button>Videre</button>
+            <p>Billeder brugt med tilladelse af Rasmus Bregnhøi</p>
+
+
+        </div>
+    </main>
+    <script>
+        let counter = 0;
+        const pics = ["https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img1.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img2.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img3.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img4.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img5.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img6.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img8.png"];
+
+        pics.forEach(visHvertLink);
+
+        function visHvertLink(link) {
+            console.log(link);
+        }
+
+        document.querySelector("button").addEventListener("click", nytBillede);
+
+        function nytBillede() {
+            document.querySelector("img").src = pics[counter];
+
+
+            if (counter == 5) {
+
+                const knap = document.querySelector("button");
+                knap.textContent = "Forfra";
+                counter = 0;
+
+
+
+            } else {
+                counter++;
+            }
+
+
+
+        }
+    </script>
+</body></html>
