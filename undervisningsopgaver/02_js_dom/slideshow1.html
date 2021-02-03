@@ -34,6 +34,7 @@
         </div>
     </main>
     <script>
+        let counter = 0;
         const pics = ["https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img2.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img3.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img4.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img5.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img6.png", "https://raw.githubusercontent.com/martinbregnhoi/Tema7E20/master/billeder/img8.png"];
 
         pics.forEach(visHvertLink);
@@ -45,7 +46,8 @@
         document.querySelector("button").addEventListener("click", nytBillede);
 
         function nytBillede() {
-            img.src = ""
+            document.querySelector("img").src = pics[counter];
+            counter++;
 
         }
     </script>
