@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <ul id="dyreListe"></ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        let dyr = [{
+            "navn": "Gris",
+            "type": "Pattedyr",
+            "levested": "Fra svinefarm"
+        }, {
+            "navn": "frø",
+            "type": "amfibie",
+            "levested": "fra Søen"
+        }, {
+            "navn": "ræv",
+            "type": "pattedyr",
+            "levested": "fra Skoven"
+        }, {
+            "navn": "Sild",
+            "type": "fisk",
+            "levested": "Fra fjorden"
+        }, {
+            "navn": "Krokodille",
+            "type": "Krybdyr",
+            "levested": " fra Amazonen"
+        }];
+
+        //dyr.forEach(visHvertDyr);
+
+        function start() {
+            console.log(dyr);
+            const listevisning = document.querySelector("#dyreListe");
+            dyr.forEach(dyr => {
+                listevisning.innerHTML += `<p>${dyr.navn}, ${dyr.type} ${dyr.levested}`;
+            })
+
+        }
+    </script>
+</body></html>
