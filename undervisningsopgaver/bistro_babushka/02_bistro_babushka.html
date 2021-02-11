@@ -4,75 +4,195 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poiret+One&display=swap" rel="stylesheet">
+    <title>Bistro babushka ret</title>
     <style>
+        body {
+            background-color: #9A8383;
 
+        }
+
+        img {
+            width: 100%;
+            z-index: 5;
+        }
+
+
+
+
+        article {
+            width: 70vw;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            background-color: #714E4E;
+            padding: 20px;
+            margin-top: 30px;
+
+
+        }
+
+        button {
+            padding: 6px;
+            border: none;
+
+            border-radius: 50%;
+            left: 87vw;
+            top: 4vw;
+            position: absolute;
+            font-size: 14px;
+
+
+        }
+
+        h3 {
+            color: white;
+            font-size: 3rem;
+            font-family: 'Poiret One', cursive;
+
+        }
+
+        h4 {
+            color: whitesmoke;
+            font-size: 22px;
+            font-family: 'Poiret One', cursive;
+
+
+        }
+
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            line-height: 25px;
+
+        }
+
+
+
+
+
+        @media (min-width: 700px) {
+
+            .my_position {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+
+                left: 50%;
+            }
+
+            article {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-top: 30px;
+                grid-gap: 35px;
+
+            }
+
+
+
+            img {
+                width: 100%;
+            }
+
+
+            button {
+                position: absolute;
+                top: 1vw;
+                left: 70vw;
+                border-radius: 50%;
+            }
+
+
+        }
 
     </style>
 </head>
 
+
+
 <body>
 
-    <body>
 
 
-        <section id="liste"></section>
 
 
-        <article class="retter">
-            <img src="" alt="">
+    <article class="retter my_position">
+
+        <div class="image">
+            <button>X</button>
+            <img>
+        </div>
+
+        <div class="txt">
+
             <h3></h3>
-            <p class="oprindelsesregion"></p>
+
+
+            <h4 class="oprindelsesregion">Oprindelsesregion: </h4>
+            <p class="kortbeskrivelse"></p>
             <p class="langbeskrivelse"></p>
             <p class="pris"></p>
-        </article>
-
-        <button>Luk</button>
-    </body>
+        </div>
 
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
+    </article>
 
 
-        const medieurl = "https://babushka-dd8a.restdb.io/media/";
-        let retter;
-        const options = {
-            headers: {
-                'x-apikey': "600ec2fb1346a1524ff12de4"
-            }
-        };
-
-        console.log("ID", id);
-        document.addEventListener("DOMContentLoaded", hentData);
-
-        async function hentData() {
-            const JSONData = await fetch(`https://babushka-dd8a.restdb.io/rest/menu/${id}`, {
-                headers: options
-            });
-
-            ret = await JSONData.json();
-
-            console.log("retter", ret);
-            visRet(ret);
-        }
-
-        function visRet() {
-            document.querySelector("img").src = medieurl + ret.billede;
-            document.querySelector("h3").textContent = ret.navn;
-            document.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
-            document.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
-            document.querySelector("button").addEventListener("click", tilbageTilMenu);
-
-        }
-
-        function tilbageTilMenu() {
-            console.log("tilbageTilMenu");
-            history.back();
-        }
-
-    </script>
 </body>
+
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+
+
+    const medieurl = "https://babushka-dd8a.restdb.io/media/";
+    let retter;
+    const options = {
+
+        'x-apikey': "600ec2fb1346a1524ff12de4"
+
+    };
+
+    console.log("ID", id);
+    document.addEventListener("DOMContentLoaded", hentData);
+
+    async function hentData() {
+        console.log("hentData");
+        const JSONData = await fetch(`https://babushka-dd8a.restdb.io/rest/menu/${id}`, {
+            headers: options
+        });
+
+        ret = await JSONData.json();
+
+        console.log("retter", ret);
+        visRet(ret);
+    }
+
+    function visRet() {
+        console.log("visRet");
+        document.querySelector("img").src = medieurl + ret.billede;
+        document.querySelector("h3").textContent = ret.navn;
+        document.querySelector(".oprindelsesregion").textContent += ret.oprindelsesregion;
+        document.querySelector(".kortbeskrivelse").textContent = ret.kortbeskrivelse;
+        document.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
+        //document.querySelector(".pris")..textContent = `${"Pris: "}` + ret.pris + `${",-"}`;;
+        document.querySelector("article").classList.add(".my_position");
+        document.querySelector("button").addEventListener("click", tilbageTilMenu);
+
+
+
+    }
+
+    function tilbageTilMenu() {
+        console.log("tilbageTilMenu");
+        history.back();
+    }
+
+</script>
 
 </html>
